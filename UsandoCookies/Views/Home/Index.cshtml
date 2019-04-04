@@ -1,0 +1,15 @@
+﻿@model UsandoCookies.Models.Mensagem
+@{
+    ViewData["Title"] = "Entrada";
+}
+
+    <h1>Entrada</h1>
+
+@using (Html.BeginForm("WriteCookie", "Home", FormMethod.Post))
+{
+    @Html.LabelFor(m => m.Entrada)
+    @Html.TextBoxFor(m => m.Entrada, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Entrada)
+    <br />
+    <button type="submit" class="btn btn-primary">Gravar e sair</button>
+}
