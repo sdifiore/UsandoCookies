@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System;
 using UsandoCookies.Models;
 
 namespace UsandoCookies.Controllers
@@ -12,7 +14,9 @@ namespace UsandoCookies.Controllers
 
         public IActionResult WriteCookie(Mensagem mensagem)
         {
-            Response.Cookies.Append("CookieComAMensagem", mensagem.Entrada);
+            var options = new CookieOptions();
+            options.Expires = DateTime.Now.AddMinutes(10);
+            Response.Cookies.Append("CookieComAMensagem", mensagem.Entrada, options);
 
             return RedirectToAction("Leitura");
         }
