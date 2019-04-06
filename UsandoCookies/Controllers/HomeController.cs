@@ -21,7 +21,7 @@ namespace UsandoCookies.Controllers
         {
             var resultado = new Mensagem();
             resultado.Saida = Request.Cookies["CookieComAMensagem"];
-
+            
             return View(resultado);
         }
     }
